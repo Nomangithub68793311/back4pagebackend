@@ -67,6 +67,9 @@ class Kernel extends HttpKernel
         'CORS'=> \App\Http\Middleware\CORS::class,
         'IpCheckAndAllow' => \App\Http\Middleware\IpCheckAndAllow::class,
         'jwt.postmiddleware'=> \App\Http\Middleware\PostMiddleware::class,
+        'jwt.smsmiddleware'=> \App\Http\Middleware\SmsMiddleware::class,
+
 
     ];
 }
+
