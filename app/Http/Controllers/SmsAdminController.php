@@ -6,6 +6,7 @@ use App\Models\SmsAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use App\Models\FreeTrial;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -192,5 +193,45 @@ class SmsAdminController extends Controller
     public function destroy(SmsAdmin $smsAdmin)
     {
         //
+    }
+    public function add_free_trial(Request $request){
+        $input = $request->only(
+          'no_of_sms'
+     );
+
+       $validator = Validator::make($input, [
+           'no_of_sms' => 'required|numeric'
+
+       ]);
+
+       if($validator->fails()){
+           return response()->json(['success'=>false,"message"=>'input fails'],422);
+
+       }
+       $matchThese = ['no_of_sms' => $request->no_of_sms];
+       $found=FreeTrial::where($matchThese)->first();
+
+
+       if($found){
+           return response()->json(['success'=>false, 'message' => ' Exists'],422);
+
+       }
+       try {
+        DB::beginTransaction();
+
+
+        $free_trial = FreeTrial::create($input);
+
+        DB::commit();
+
+        return  response()->json(['success'=>true,"message"=>'free trial  added successfully']);
+    }
+        catch (\Exception $e) {
+        DB::rollback();
+        return response()->json(["error"=>$e],422);
+        }
+
+
+
     }
 }

@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('signup_otps', function (Blueprint $table) {
-           $table->uuid('id')->primary(); 
-            $table->string('otp');
-            $table->timestamp('expire_at')->nullable(); 
-            $table->string('type');
-            $table->string('phone');        
+        Schema::create('free_trials', function (Blueprint $table) {
+           $table->uuid('id')->primary();
+            $table->integer('no_of_sms');
+            $table->string('trial')->default('trial');
+            $table->integer('users')->nullable(); 
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signup_otps');
+        Schema::dropIfExists('free_trials');
     }
 };

@@ -68,7 +68,7 @@ class Kernel extends HttpKernel
         'IpCheckAndAllow' => \App\Http\Middleware\IpCheckAndAllow::class,
         'jwt.postmiddleware'=> \App\Http\Middleware\PostMiddleware::class,
         'jwt.smsmiddleware'=> \App\Http\Middleware\SmsMiddleware::class,
-
+        'jwt.smsadminmiddleware'=> \App\Http\Middleware\SmsAdminMiddleware::class,
 
     ];
 }

@@ -14,14 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sms', function (Blueprint $table) {
-            $table->uuid('id')->nullable(); 
+            $table->uuid('id')->primary(); 
             $table->string('name');
             $table->string('phone');
             $table->string('password');
             $table->string('white_label_name')->nullable(); 
             $table->string('hashed_password');
-            $table->integer('free _sms')->default(0);
-            $table->integer('num_of _sms')->default(0);
+	    $table->integer('free_sms')->default(0);
+	    $table->boolean('free_sms_status')->default(false);
+            $table->integer('num_of_sms')->default(0);
             $table->float('balance',10,2)->default(0.00); 
             $table->timestamps();
         });

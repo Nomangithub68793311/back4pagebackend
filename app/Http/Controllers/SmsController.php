@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sms;
 use App\Models\SignupOtp;
-
+use App\Models\FreeTrial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -64,7 +64,16 @@ class SmsController extends Controller
 
         try {
             DB::beginTransaction();
-            $account =Sms::create($input); // eloquent creation of data
+	    $account =Sms::create($input); // eloquent creation of data
+	    $matchThese = ['trial' => 'trial'];
+           $trial=FreeTrial::where($matchThese)->first();
+           $account->free_sms = $account->free_sms + $trial->no_of_sms;
+           $account->free_sms_status=true;
+           $account->num_of_sms=$account->num_of_sms  + $trial->no_of_sms;
+
+           $account->save();
+           $trial->users=$trial->users + 1;
+           $trial->save();
             if (!$account) {
                 return response()->json(["error"=>"didnt work"],422);
             }
@@ -78,7 +87,8 @@ class SmsController extends Controller
                 return response()->json(['success'=>true, 
                 'token' => '1'.$token ,
                 'id' => $account->id ,
-                        
+                'num_of_sms' => $account->num_of_sms ,
+
             ]);
         }
         catch (\Exception $e) {
@@ -208,7 +218,8 @@ class SmsController extends Controller
                     return response()->json(['success'=>true, 
                     'token' => '1'.$token ,
                     'id' => $found_with_phone->id ,
-                            
+                  'num_of_sms' => $found_with_phone->num_of_sms
+   
                 ]);
 
             }
@@ -261,12 +272,12 @@ class SmsController extends Controller
 
     public static function add_balance(Request $request,$id){
         $input = $request->only(
-            'balance'
+            'num_of_sms'
       );
         $validator = Validator::make($input, [
           
            
-            'balance' => 'required'
+            'num_of_sms' => 'required|numeric'
             
         ]);
         
@@ -274,33 +285,30 @@ class SmsController extends Controller
          return response()->json(['success'=>false,"message"=>'input fails'],422);
  
      }
+    //  return  response()->json(['success'=>true,"message"=>'balance added successfully']);
+
      try {
         DB::beginTransaction();
     
 
         $sms = Sms::find($id); // eloquent creation of data
-
-        if(!$sms){
-            return response()->json(['success'=>false,"message"=>'not found'],422);
-
-        }
-        
-        $sms->balance= $sms->balance + $request->balance * 100;
+        $sms->num_of_sms= $sms->num_of_sms + $request->num_of_sms;
         $sms->save();
+
+       
         
+       
         // $response = Http::post('http://127.0.0.1:8000/v1/event', [
         //     "email"=>$student->email
             
         // ]);
         DB::commit();   
-        // $job=(new StudentEmailJob( $student->email,$student->password, $school->institution_name,$school->logo,))
-        // ->delay(Carbon::now()->addSeconds(5));
-        // dispatch( $job);
+        
         return  response()->json(['success'=>true,"message"=>'balance added successfully']);
     }
         catch (\Exception $e) {
         DB::rollback();  
-        return response()->json(["error"=>"didnt work"],422);
+        return response()->json(["error"=>$e],422);
         }
 
     }
