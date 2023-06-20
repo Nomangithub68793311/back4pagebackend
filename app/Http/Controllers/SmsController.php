@@ -382,10 +382,56 @@ class SmsController extends Controller
             // $job=(new StudentEmailJob( $student->email,$student->password, $school->institution_name,$school->logo,))
             // ->delay(Carbon::now()->addSeconds(5));
             // dispatch( $job);
-            return  response()->json(['success'=>true,"detsils"=> $sms]);
+            return  response()->json(['success'=>true,"num_of_sms"=> $sms->num_of_sms]);
         }
             catch (\Exception $e) {
             DB::rollback();  
+            return response()->json(["error"=>"didnt work"],422);
+            }
+    }
+
+    public static function get_user_details_id($id){
+        try {
+            DB::beginTransaction();
+
+
+            $sms = Sms::find($id); // eloquent creation of data
+
+            if(!$sms){
+                return response()->json(['success'=>false,"message"=>'not found'],422);
+
+            }
+
+
+            DB::commit();
+
+            return  response()->json(['success'=>true,"num_of_sms"=> $sms->num_of_sms]);
+        }
+            catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(["error"=>"didnt work"],422);
+            }
+    }
+
+    public static function get_user_details_bearer($id){
+        try {
+            DB::beginTransaction();
+
+
+            $sms = Sms::find($id); // eloquent creation of data
+
+            if(!$sms){
+                return response()->json(['success'=>false,"message"=>'not found'],422);
+
+            }
+
+
+            DB::commit();
+
+            return  response()->json(['success'=>true,"num_of_sms"=> $sms->num_of_sms]);
+        }
+            catch (\Exception $e) {
+            DB::rollback();
             return response()->json(["error"=>"didnt work"],422);
             }
     }

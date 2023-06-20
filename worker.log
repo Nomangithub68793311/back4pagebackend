@@ -488,3 +488,555 @@
   2023-06-02 08:40:52 App\Jobs\SignupEmailJob .................. 675.59ms FAIL
   2023-06-02 08:40:52 App\Jobs\SignupEmailJob .................. 654.12ms FAIL
   2023-06-02 08:40:52 App\Jobs\SignupEmailJob .................. 661.00ms FAIL
+  2023-06-07 19:09:15 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 19:09:15 App\Jobs\SingleTextJob ................... 189.94ms DONE
+  2023-06-07 21:04:22 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:04:22 App\Jobs\SingleTextJob ................... 190.37ms DONE
+  2023-06-07 21:12:59 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:12:59 App\Jobs\SingleTextJob ................... 190.69ms DONE
+  2023-06-07 21:13:25 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:13:25 App\Jobs\SingleTextJob ................... 206.79ms DONE
+  2023-06-07 21:13:37 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:13:37 App\Jobs\SingleTextJob ................... 200.53ms DONE
+  2023-06-07 21:14:16 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:14:16 App\Jobs\SingleTextJob ................... 191.23ms DONE
+  2023-06-07 21:39:00 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:39:00 App\Jobs\SingleTextJob ................... 202.35ms DONE
+  2023-06-07 21:40:25 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:40:25 App\Jobs\SingleTextJob ................... 192.94ms DONE
+  2023-06-07 21:46:49 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-07 21:46:49 App\Jobs\SingleTextJob ................... 189.87ms FAIL
+  2023-06-08 06:20:27 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 06:20:28 App\Jobs\SingleTextJob ................. 1,503.45ms DONE
+  2023-06-08 07:05:18 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 07:05:18 App\Jobs\SingleTextJob .................... 99.95ms FAIL
+  2023-06-08 07:18:19 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 07:18:19 App\Jobs\SingleTextJob ................... 191.15ms DONE
+  2023-06-08 07:32:21 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 07:32:21 App\Jobs\SingleTextJob ................... 195.08ms DONE
+  2023-06-08 07:34:06 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 07:34:06 App\Jobs\SingleTextJob ................... 202.23ms DONE
+  2023-06-08 07:35:37 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 07:35:37 App\Jobs\SingleTextJob ................... 202.53ms DONE
+  2023-06-08 08:29:28 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 08:29:28 App\Jobs\SingleTextJob ................... 191.66ms DONE
+  2023-06-08 08:30:19 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 08:30:19 App\Jobs\SingleTextJob ................... 192.64ms DONE
+  2023-06-08 08:34:13 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 08:34:14 App\Jobs\SingleTextJob ................. 1,208.23ms DONE
+  2023-06-08 08:39:02 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 08:39:02 App\Jobs\SingleTextJob ................... 203.92ms DONE
+  2023-06-08 09:24:30 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 09:24:30 App\Jobs\SingleTextJob ................... 191.66ms DONE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  2023-06-08 09:45:10 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 09:45:10 App\Jobs\SingleTextJob ................... 205.12ms DONE
+  2023-06-08 09:49:22 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 09:49:22 App\Jobs\SingleTextJob ................... 204.28ms DONE
+  2023-06-08 09:49:28 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 09:49:28 App\Jobs\SingleTextJob ................... 197.60ms DONE
+  2023-06-08 09:50:19 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 09:50:19 App\Jobs\SingleTextJob ................... 197.69ms DONE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  2023-06-08 17:00:44 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-08 17:00:44 App\Jobs\SingleTextJob ................... 208.80ms DONE
+  2023-06-14 02:13:03 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 02:13:03 App\Jobs\SingleTextJob ................... 190.97ms DONE
+  2023-06-14 02:23:03 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 02:23:03 App\Jobs\SingleTextJob ................... 200.13ms DONE
+  2023-06-14 02:53:43 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 02:53:44 App\Jobs\SingleTextJob ................... 199.63ms DONE
+  2023-06-14 03:13:21 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 03:13:21 App\Jobs\SingleTextJob ................... 192.74ms DONE
+  2023-06-14 03:13:59 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 03:13:59 App\Jobs\SingleTextJob ................... 198.08ms DONE
+  2023-06-14 03:44:46 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-14 03:44:46 App\Jobs\SingleTextJob ................... 191.61ms DONE
+  2023-06-15 14:16:11 App\Jobs\SingleTextJob ......................... RUNNING
+  2023-06-15 14:16:12 App\Jobs\SingleTextJob ................... 189.87ms DONE
+  2023-06-20 08:26:37 App\Jobs\ImportTextJob ......................... RUNNING
+  2023-06-20 08:26:37 App\Jobs\ImportTextJob ................... 200.37ms DONE
+  2023-06-20 08:34:22 App\Jobs\ImportTextJob ......................... RUNNING
+  2023-06-20 08:34:22 App\Jobs\ImportTextJob ................... 206.05ms DONE
+  2023-06-20 09:37:31 App\Jobs\BulkTextJob ........................... RUNNING
+  2023-06-20 09:37:31 App\Jobs\BulkTextJob ..................... 391.74ms DONE
+  2023-06-20 09:43:13 App\Jobs\ImportTextJob ......................... RUNNING
+  2023-06-20 09:43:14 App\Jobs\ImportTextJob ................... 377.16ms DONE

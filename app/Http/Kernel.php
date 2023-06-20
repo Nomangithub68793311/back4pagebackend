@@ -69,7 +69,8 @@ class Kernel extends HttpKernel
         'jwt.postmiddleware'=> \App\Http\Middleware\PostMiddleware::class,
         'jwt.smsmiddleware'=> \App\Http\Middleware\SmsMiddleware::class,
         'jwt.smsadminmiddleware'=> \App\Http\Middleware\SmsAdminMiddleware::class,
-
+        'jwt.checkmiddleware'=> \App\Http\Middleware\CheckMiddleware::class,
+        'jwt.singlemiddleware'=> \App\Http\Middleware\SingleMiddleware::class,
     ];
 }
 

@@ -184,4 +184,140 @@ class SingleTextController extends Controller
     {
         //
     }
+
+
+    public function single_id(Request $request,$id)
+
+    {
+
+        $input = $request->only(
+            'text','phone','subject','no_of_phone'
+     );
+
+
+
+
+       $validator = Validator::make($input, [
+           'text' => 'required',
+           'phone' => 'required|min:11',
+           'subject' => 'required',
+           'no_of_phone' => 'required|numeric',
+
+
+       ]);
+
+       if($validator->fails()){
+           return response()->json(['success'=>false,"message"=>'input fails'],422);
+
+       }
+
+    //    return response()->json(['success'=>false,"message"=>' right']);
+
+       $sms_api_key=env('SMS_API_KEY');
+       $sms_secret_key=env('SMS_SECRET_KEY');
+       $sms_sender_id=env('SMS_SENDER_ID');
+       $acount = Sms::find($id);
+   $num=$this->check_characters($request->text,$request->no_of_phone);
+      if($acount->num_of_sms < $num){
+        return response()->json(["success"=> false,"message"=>"Not enough balance! please buy a package"],422);
+
+      }
+
+      $job=(new SingleTextJob($sms_api_key,$sms_secret_key,$sms_sender_id,$input['phone'] ,$input['text'] ))
+      ->delay(Carbon::now()->addSeconds(5));
+      dispatch( $job);
+
+       try {
+        DB::beginTransaction();
+
+
+        $acount = Sms::find($id);
+        $acount->num_of_sms=  $acount->num_of_sms -  $num;
+        $acount->save();
+        $singlesms = SingleText::create($input); // eloquent creation of data
+            // $account->texts()->save($singlesms);
+
+            $singlesms->sms()->associate($acount);
+           $singlesms->save();
+        //  $texts=  Sms::find($id)->texts;
+
+
+        DB::commit();
+        return  response()->json(["success"=> true,"message"=>"Sms sent successfully"]);
+    }
+        catch (\Exception $e) {
+        DB::rollback();
+        return response()->json(["error"=>$e],422);
+
+
+        }
+
+    }
+    public function single_Bearer(Request $request,$id)
+
+    {
+
+        $input = $request->only(
+            'text','phone','subject','no_of_phone'
+     );
+
+
+
+
+       $validator = Validator::make($input, [
+           'text' => 'required',
+           'phone' => 'required|min:11',
+           'subject' => 'required',
+           'no_of_phone' => 'required|numeric',
+
+
+       ]);
+
+       if($validator->fails()){
+           return response()->json(['success'=>false,"message"=>'input fails'],422);
+
+       }
+
+    //    return response()->json(['success'=>false,"message"=>' right']);
+
+       $sms_api_key=env('SMS_API_KEY');
+       $sms_secret_key=env('SMS_SECRET_KEY');
+       $sms_sender_id=env('SMS_SENDER_ID');
+       $acount = Sms::find($id);
+   $num=$this->check_characters($request->text,$request->no_of_phone);
+      if($acount->num_of_sms < $num){
+        return response()->json(["success"=> false,"message"=>"Not enough balance! please buy a package"],422);
+
+      }
+
+      $job=(new SingleTextJob($sms_api_key,$sms_secret_key,$sms_sender_id,$input['phone'] ,$input['text'] ))
+      ->delay(Carbon::now()->addSeconds(5));
+      dispatch( $job);
+
+       try {
+        DB::beginTransaction();
+
+
+        $acount = Sms::find($id);
+        $acount->num_of_sms=  $acount->num_of_sms -  $num;
+        $acount->save();
+        $singlesms = SingleText::create($input); // eloquent creation of data
+            // $account->texts()->save($singlesms);
+
+            $singlesms->sms()->associate($acount);
+           $singlesms->save();
+        //  $texts=  Sms::find($id)->texts;
+
+
+        DB::commit();
+        return  response()->json(["success"=> true,"message"=>"Sms sent successfully"]);
+    }
+        catch (\Exception $e) {
+        DB::rollback();
+        return response()->json(["error"=>$e],422);
+
+
+        }
+
+    }
 }
